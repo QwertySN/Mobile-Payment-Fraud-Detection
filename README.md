@@ -18,8 +18,8 @@ Development of an ML model for detecting fraud in the mobile payment flow. The m
 - **Models:** Logistic Regression (baseline), Random Forest + Optuna
 - **Validation:** 80/20 chronological split (no leaks), cross-validation for tuning
 - **Business logic:** Cost-Function (FN=1000, FP=250, StepUp=50), selecting the optimal threshold via predict_proba().
-- **Мониторинг:** PSI по ключевым признакам, KS-тест на значимость сдвигов. Триггер переобучения: PSI > 0.2 или KS p < 0.05.
-- **Цикл поддержки:** сбор сырых данных → расчёт PSI/KS → при срабатывании триггера → сбор разметки → переобучение → A/B порогов → деплой.
+- **Monitoring:** PSI according to key indicators, KS is a test for the significance of shifts. Retraining trigger: PSI > 0.2 or KS p < 0.05.
+- **Support cycle:** Raw data collection → PSI/KS calculation → trigger trigger → markup collection → retraining → A/B thresholds → deployment.
 
 
 ## Results (Test Set)
@@ -60,7 +60,8 @@ jupyter lab notebooks/01_EDA.ipynb
 - **Модели:** Logistic Regression (baseline), Random Forest + Optuna
 - **Валидация:** Хронологический сплит 80/20 (без утечек), кросс-валидация для тюнинга
 - **Бизнес-логика:** Cost-Function (FN=1000, FP=250, StepUp=50), подбор оптимального порога через predict_proba().
-
+- **Мониторинг:** PSI по ключевым признакам, KS-тест на значимость сдвигов. Триггер переобучения: PSI > 0.2 или KS p < 0.05.
+- **Цикл поддержки:** сбор сырых данных → расчёт PSI/KS → при срабатывании триггера → сбор разметки → переобучение → A/B порогов → деплой.
 
 ## Результаты (Test Set)
 | Модель              | Порог | Precision | Recall | Cost (tg)  |
