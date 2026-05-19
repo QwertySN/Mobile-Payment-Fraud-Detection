@@ -18,6 +18,8 @@ Development of an ML model for detecting fraud in the mobile payment flow. The m
 - **Models:** Logistic Regression (baseline), Random Forest + Optuna
 - **Validation:** 80/20 chronological split (no leaks), cross-validation for tuning
 - **Business logic:** Cost-Function (FN=1000, FP=250, StepUp=50), selecting the optimal threshold via predict_proba().
+- **Мониторинг:** PSI по ключевым признакам, KS-тест на значимость сдвигов. Триггер переобучения: PSI > 0.2 или KS p < 0.05.
+- **Цикл поддержки:** сбор сырых данных → расчёт PSI/KS → при срабатывании триггера → сбор разметки → переобучение → A/B порогов → деплой.
 
 
 ## Results (Test Set)
